@@ -8,8 +8,4 @@ server.use(cors());
 
 server.use(express.json());
 
-server.get('/', (req, res) => {
-  return res.send('Hello World!');
-});
-
 server.use(router);
