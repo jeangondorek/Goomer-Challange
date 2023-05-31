@@ -1,7 +1,10 @@
 import { RequestHandler } from 'express';
 
-const getOneRestaurant:RequestHandler = async (req, res) => {
-  return res.send('Get One restaurant!');
+const getOneRestaurant:RequestHandler = async (req, res, next) => {
+  if (req.url.includes('/products')) {
+    return next();
+  }
+  return res.send('Get One Restaurant!');
 };
 
 export {getOneRestaurant};
