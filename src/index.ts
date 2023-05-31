@@ -1,4 +1,5 @@
 import connectToDatabase from './server/database/database';
+import 'reflect-metadata';
 import { server } from './server/server';
 import 'dotenv/config';
 
