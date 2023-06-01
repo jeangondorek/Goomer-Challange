@@ -3,7 +3,7 @@ import { RequestHandler } from 'express';
 
 export const createProduct: RequestHandler = async (req, res) => {
   try {
-    const { name, description, precopromo, promo, preco, diasempromo, image, restaurantid } = req.body;
+    const { name, description, precopromo, promo, preco, diasempromo, image, category, restaurantid } = req.body;
 
     const db = await openDB();
     
@@ -13,7 +13,7 @@ export const createProduct: RequestHandler = async (req, res) => {
       return res.status(404).json({ error: 'Restaurante não encontrado' });
     }
 
-    const resposta = await db.run('INSERT INTO products (name, description, precopromo, promo, preco, diasempromo, image, restaurant_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [
+    const resposta = await db.run('INSERT INTO products (name, description, precopromo, promo, preco, diasempromo, image, category, restaurant_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)', [
       name,
       description,
       precopromo,
@@ -21,6 +21,7 @@ export const createProduct: RequestHandler = async (req, res) => {
       preco,
       diasempromo,
       image,
+      category,
       restaurantid
     ]);
     
