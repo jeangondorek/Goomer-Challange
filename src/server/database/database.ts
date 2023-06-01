@@ -1,14 +1,9 @@
-import { createConnection, Connection } from 'typeorm';
+import sqlite3 from 'sqlite3';
+import { open } from 'sqlite';
 
-const connectToDatabase = async (): Promise<Connection> => {
-  const connection = await createConnection({
-    type: 'sqlite',
-    database: 'src/server/database/database.db',
-    entities: [__dirname + 'src/server/entities/*.ts'],
-    synchronize: true,
+export async function openDB() {
+  return open({
+    filename: './src/server/database/database.db',
+    driver: sqlite3.Database,
   });
-
-  return connection;
-};
-
-export default connectToDatabase;
+}

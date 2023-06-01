@@ -1,9 +1,34 @@
+import { openDB } from '../index.controller';
 import { RequestHandler } from 'express';
 
-const createProduct:RequestHandler = async (req, res) => {
-  const reqUrlSplit = req.url.split('/');
-  const restaurantId = reqUrlSplit[2];
-  return res.send(`Cria Product! from restaurant ID: ${restaurantId}!`);
-};
+export const createProduct: RequestHandler = async (req, res) => {
+  try {
+    const { name, description, precopromo, promo, preco, diasempromo, image, restaurantid } = req.body;
 
-export {createProduct};
+    const db = await openDB();
+    
+    // Verifica se o restaurante com o restaurant_id fornecido existe
+    const existingRestaurant = await db.get('SELECT id FROM restaurant WHERE id = ?', [restaurantid]);
+    if (!existingRestaurant) {
+      return res.status(404).json({ error: 'Restaurante não encontrado' });
+    }
+
+    const resposta = await db.run('INSERT INTO products (name, description, precopromo, promo, preco, diasempromo, image, restaurant_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [
+      name,
+      description,
+      precopromo,
+      promo,
+      preco,
+      diasempromo,
+      image,
+      restaurantid
+    ]);
+    
+    console.log(resposta);
+    db.close();
+    res.sendStatus(200); // Envie uma resposta de sucesso para o cliente
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500); // Envie uma resposta de erro para o cliente
+  }
+};

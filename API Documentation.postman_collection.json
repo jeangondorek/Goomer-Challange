@@ -33,7 +33,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"title\": \"asgas\",\n    \"done\": true,\n    \"description\": \"asfasf\"\n}"
+							"raw": "{\n    \"name\": \"Cachorro2\",\n    \"foto\": \"true\",\n    \"address\": \"asfasf\",\n    \"horarios\": \"qualquer\"\n}"
 						},
 						"url": {
 							"raw": "{{URLBASE}}/restaurant",
@@ -174,7 +174,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"safas\",\n    \"email\": \"dsgsd\",\n    \"password\": \"asfasf\"\n}"
+							"raw": "{\n    \"name\": \"GTRT\"\n}"
 						},
 						"url": {
 							"raw": "{{URLBASE}}/restaurant/1",
@@ -219,16 +219,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"title\": \"asgas\",\n    \"done\": true,\n    \"description\": \"asfasf\"\n}"
+							"raw": "{\n  \"name\": \"Pizza Margherita\",\n  \"description\": \"Delicious classic pizza with tomato sauce, mozzarella cheese, and fresh basil\",\n  \"precopromo\": 15.99,\n  \"promo\": \"30% off\",\n  \"preco\": 22.99,\n  \"diasempromo\": \"Monday to Wednesday\",\n  \"image\": \"https://example.com/images/pizza.jpg\",\n  \"restaurantid\": 2\n}\n"
 						},
 						"url": {
-							"raw": "{{URLBASE}}/restaurant/1/products",
+							"raw": "{{URLBASE}}/products",
 							"host": [
 								"{{URLBASE}}"
 							],
 							"path": [
-								"restaurant",
-								"1",
 								"products"
 							]
 						},
@@ -260,15 +258,19 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{URLBASE}}/restaurant/1/products/1",
+							"raw": "{{URLBASE}}/products/1?restaurantId=1",
 							"host": [
 								"{{URLBASE}}"
 							],
 							"path": [
-								"restaurant",
-								"1",
 								"products",
 								"1"
+							],
+							"query": [
+								{
+									"key": "restaurantId",
+									"value": "1"
+								}
 							]
 						},
 						"description": "Gets information about a collection. For a complete list of this endpoint's possible values, use the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json)."
@@ -288,25 +290,22 @@
 							}
 						}
 					],
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "{{URLBASE}}/restaurant/1/products",
+							"raw": "{{URLBASE}}/products?restaurantId=1",
 							"host": [
 								"{{URLBASE}}"
 							],
 							"path": [
-								"restaurant",
-								"1",
 								"products"
+							],
+							"query": [
+								{
+									"key": "restaurantId",
+									"value": "1"
+								}
 							]
 						},
 						"description": "Gets information about a collection. For a complete list of this endpoint's possible values, use the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json)."
@@ -330,15 +329,19 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{URLBASE}}/restaurant/1/products/1",
+							"raw": "{{URLBASE}}/products/1?restaurantId=1",
 							"host": [
 								"{{URLBASE}}"
 							],
 							"path": [
-								"restaurant",
-								"1",
 								"products",
 								"1"
+							],
+							"query": [
+								{
+									"key": "restaurantId",
+									"value": "1"
+								}
 							]
 						},
 						"description": "Deletes a collection."
@@ -368,18 +371,22 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"safas\",\n    \"email\": \"dsgsd\",\n    \"password\": \"asfasf\"\n}"
+							"raw": "{\n    \"name\": \"peixe\"\n}"
 						},
 						"url": {
-							"raw": "{{URLBASE}}/restaurant/1/products/1",
+							"raw": "{{URLBASE}}/products/1?restaurantId=1",
 							"host": [
 								"{{URLBASE}}"
 							],
 							"path": [
-								"restaurant",
-								"1",
 								"products",
 								"1"
+							],
+							"query": [
+								{
+									"key": "restaurantId",
+									"value": "1"
+								}
 							]
 						},
 						"description": "Updates a collection using the [Postman Collection v2 schema format](https://schema.postman.com/json/collection/v2.1.0/docs/index.html). Include a `collection` object in the request body that contains the following required properties:\n\n- `info` — An **object** that contains the following properties:\n    - `name` — A **string** value that contains the collection's name.\n    - `schema` — A **string** that contains a URL to the collection's schema. For example, the `https://schema.getpostman.com/collection/v1` URL.\n- `item` — An **object** that contains the HTTP request and response information.\n    - `request` — An **object** that contains the collection's request information. For a complete list of values, refer to the `definitions.request` entry in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json). If you pass an empty object for this value, the system defaults to an untitled GET request.\n\n**Note:**\n\n- For a complete list of available property values for this endpoint, use the following references available in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json):\n    - `info` object — Use the `definitions.info` entry.\n    - `item` object — Use the `definitions.items` entry.\n- For all other possible values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json).\n    \n\n### Important\n\nUse caution when using this endpoint. The system will replace the existing collection with the values passed in the request body."

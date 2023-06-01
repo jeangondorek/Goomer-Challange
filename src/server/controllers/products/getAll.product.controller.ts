@@ -1,9 +1,16 @@
+import { openDB } from '../index.controller';
 import { RequestHandler } from 'express';
 
-const getAllProduct:RequestHandler = async (req, res) => {
-  const reqUrlSplit = req.url.split('/');
-  const restaurantId = reqUrlSplit[2];
-  return res.send(`Get All Product! from restaurant ID: ${restaurantId}!`);
-};
+export const getAllProduct: RequestHandler = async (req, res) => {
+  try {
+    const { restaurantId } = req.query; // Obtém o ID do restaurante dos parâmetros da consulta
 
-export {getAllProduct};
+    const db = await openDB();
+    const resposta = await db.all('SELECT * FROM products WHERE restaurant_id = ?', [restaurantId]);
+    db.close();
+    res.status(200).json(resposta); // Envie uma resposta de sucesso com os dados para o cliente
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500); // Envie uma resposta de erro para o cliente
+  }
+};

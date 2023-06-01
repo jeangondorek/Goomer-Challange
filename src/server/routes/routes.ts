@@ -13,10 +13,10 @@ router.put('/restaurant/:id', restaurantController.updateRestaurant);
 router.get('/restaurant', restaurantController.getAllRestaurant);
 router.get('/restaurant/:id', restaurantController.getOneRestaurant);
 
-router.post('/restaurant/:id/products', restaurantController.getOneRestaurant ,productController.createProduct);
-router.delete('/restaurant/:id/products/:id', restaurantController.getOneRestaurant, productController.deleteProduct);
-router.put('/restaurant/:id/products/:id', restaurantController.getOneRestaurant, productController.updateProduct);
-router.get('/restaurant/:id/products', restaurantController.getOneRestaurant, productController.getAllProduct);
-router.get('/restaurant/:id/products/:id', restaurantController.getOneRestaurant, productController.getOneProduct);
+router.post('/products', productController.createProduct);
+router.delete('/products/:id', productController.deleteProduct);
+router.put('/products/:id', productController.updateProduct);
+router.get('/products', productController.getAllProduct);
+router.get('/products/:id', productController.getOneProduct);
 
-export {router};
+export { router };
