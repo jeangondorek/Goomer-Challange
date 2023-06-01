@@ -11,6 +11,7 @@ export function createProductTable() {
       preco NUMERIC, 
       diasempromo TEXT,
       image TEXT,
+      category TEXT,
       restaurant_id INTEGER,
       FOREIGN KEY (restaurant_id) REFERENCES restaurant (id))`,
     (err: any) => {

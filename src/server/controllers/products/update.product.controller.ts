@@ -17,7 +17,7 @@ export const updateProduct: RequestHandler = async (req, res) => {
     const values = [];
     let fieldsToUpdate = 0;
 
-    const { name, description, precopromo, promo, preco, diasempromo, image } = req.body;
+    const { name, description, precopromo, promo, preco, diasempromo, image, category } = req.body;
 
     if (name) {
       query += 'name = ?, ';
@@ -58,6 +58,12 @@ export const updateProduct: RequestHandler = async (req, res) => {
     if (image) {
       query += 'image = ?, ';
       values.push(image);
+      fieldsToUpdate++;
+    }
+
+    if (category) {
+      query += 'category = ?, ';
+      values.push(category);
       fieldsToUpdate++;
     }
 
