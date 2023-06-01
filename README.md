@@ -4,45 +4,45 @@
 
 ## A sua API deverá ser capaz de
 
-[X]Listar todos os restaurantes
+- [x] Listar todos os restaurantes
 
-[X]Cadastrar novos restaurantes
+- [x] Cadastrar novos restaurantes
 
-[X]Listar os dados de um restaurante
+- [x] Listar os dados de um restaurante
 
-[X]Alterar os dados um restaurante
+- [x] Alterar os dados um restaurante
 
-[X]Excluir um restaurante
+- [x] Excluir um restaurante
 
-[X]Listar todos os produtos de um restautante
+- [x] Listar todos os produtos de um restautante
 
-[X]Criar um produto de um restaurante
+- [x] Criar um produto de um restaurante
 
-[X]Alterar um produto de um restaurante
+- [x] Alterar um produto de um restaurante
 
-[X]Excluir um produto de um restaurante
+- [x] Excluir um produto de um restaurante
 
 ### O cadastro do restaurante precisa ter os seguintes campos
 
-[X]Foto do restaurante
+- [x] Foto do restaurante
 
-[X]Nome do restaurante
+- [x] Nome do restaurante
 
-[X]Endereço do restaurante
+- [x] Endereço do restaurante
 
-[X]Horários de funcionamento do restaurante (ex.: De Segunda à Sexta das 09h as 18h e de Sabado à Domingo das 11h as 20h).
+- [x] Horários de funcionamento do restaurante (ex.: De Segunda à Sexta das 09h as 18h e de Sabado à Domingo das 11h as 20h).
 
 - Todo: Validar horários, separar dias e horários
 
 ### O cadastro de produtos do restaurante precisa ter os seguintes campos
 
-[X]Foto do produto
+- [x] Foto do produto
 
-[X]Nome do produto
+- [x] Nome do produto
 
-[X]Preço do produto
+- [x] Preço do produto
 
-[X]Categoria do produto (ex.: Doce, Salgados, Sucos...)
+- [x] Categoria do produto (ex.: Doce, Salgados, Sucos...)
 
 - Quando o Produto for colocado em promoção, precisa ter os seguintes campos:
 
@@ -50,16 +50,16 @@
 
   - Todo: Validar horários, separar dias e horários
 
-[X] Descrição para a promoção do produto (ex.: Chopp pela metade do preço)
+- [x] Descrição para a promoção do produto (ex.: Chopp pela metade do preço)
 
-[X] Preço promocional
+- [x] Preço promocional
 
-[X]Dias da semana e o horário em que o produto deve estar em promoção
+- [x] Dias da semana e o horário em que o produto deve estar em promoção
 
 ### Formato de horários
 
-[]É necessário tratar os campos que indicam horários de funcionamento e horário para as promoções dos produtos.
+- [ ] É necessário tratar os campos que indicam horários de funcionamento e horário para as promoções dos produtos.
 
-[]Os campos devem possuir o formato HH:mm.
+- [ ] Os campos devem possuir o formato HH:mm.
 
-[]Os horários devem possuir intervalo mínimo de 15 minutos.
+- [ ] Os horários devem possuir intervalo mínimo de 15 minutos.
