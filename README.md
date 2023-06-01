@@ -50,9 +50,9 @@
 
   - Todo: Validar horários, separar dias e horários
 
-[X]Descrição para a promoção do produto (ex.: Chopp pela metade do preço)
+[X] Descrição para a promoção do produto (ex.: Chopp pela metade do preço)
 
-[X]Preço promocional
+[X] Preço promocional
 
 [X]Dias da semana e o horário em que o produto deve estar em promoção
 
