@@ -1,5 +1,7 @@
 import { openDB } from '../index.controller';
 import { RequestHandler } from 'express';
+import { validatePromoFields } from '../../services/validatePromoFields.service';
+import { validateHorario } from '../../services/validateHour.services';
 
 export const updateProduct: RequestHandler = async (req, res) => {
   try {
@@ -13,11 +15,26 @@ export const updateProduct: RequestHandler = async (req, res) => {
       return;
     }
 
+    const horarios = [ req.body.horarioIniciopromo, req.body.horarioFimpromo];
+
+    for (const horario of horarios) {
+      if (validateHorario(horario)) {
+        console.log(`Horário inválido: ${horario}`);
+        return res.status(400).json({ error: 'Formato dos campos inválido' });
+      }
+    }
+
     let query = 'UPDATE products SET ';
     const values = [];
     let fieldsToUpdate = 0;
 
-    const { name, description, precopromo, promo, preco, diasempromo, horariosempromo, image, category } = req.body;
+    const { name, description, precopromo, promo, preco, diasempromo, horarioIniciopromo, horarioFimpromo, image, category } = req.body;
+
+    const validadapromo = validatePromoFields(promo, description, precopromo, diasempromo, horarioIniciopromo, horarioFimpromo);
+
+    if(validadapromo) {
+      return res.status(400).json({ error: 'Campos inválidos ou faltantes' });
+    }
 
     if (name) {
       query += 'name = ?, ';
@@ -55,9 +72,15 @@ export const updateProduct: RequestHandler = async (req, res) => {
       fieldsToUpdate++;
     }
 
-    if (horariosempromo) {
-      query += 'horariosempromo = ?, ';
-      values.push(horariosempromo);
+    if (horarioIniciopromo) {
+      query += 'horarioIniciopromo = ?, ';
+      values.push(horarioIniciopromo);
+      fieldsToUpdate++;
+    }
+
+    if (horarioFimpromo) {
+      query += 'horarioFimpromo = ?, ';
+      values.push(horarioFimpromo);
       fieldsToUpdate++;
     }
 

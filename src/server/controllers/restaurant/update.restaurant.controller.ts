@@ -1,11 +1,21 @@
 import { RequestHandler } from 'express';
 import { openDB } from '../index.controller';
+import { validateHorario } from '../../services/validateHour.services';
 
 export const updateRestaurant: RequestHandler = async (req, res) => {
   try {
     const db = await openDB();
-    const { name, foto, address, dias, horarios } = req.body;
+    const { name, foto, address, dias, horarioInicio, horarioFim } = req.body;
     const { id } = req.params;
+
+    const horarios = [ req.body.horarioInicio, req.body.horarioFim];
+
+    for (const horario of horarios) {
+      if (validateHorario(horario)) {
+        console.log(`Horário inválido: ${horario}`);
+        return res.status(400).json({ error: 'Formato dos campos inválido' });
+      }
+    }
 
     let query = 'UPDATE restaurant SET ';
     const values = [];
@@ -35,9 +45,15 @@ export const updateRestaurant: RequestHandler = async (req, res) => {
       fieldsToUpdate++;
     }
 
-    if (horarios) {
-      query += 'horarios = ?, ';
-      values.push(horarios);
+    if (horarioInicio) {
+      query += 'horarioInicio = ?, ';
+      values.push(horarioInicio);
+      fieldsToUpdate++;
+    }
+
+    if (horarioFim) {
+      query += 'horarioFim = ?, ';
+      values.push(horarioFim);
       fieldsToUpdate++;
     }
 

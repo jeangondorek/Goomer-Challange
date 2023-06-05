@@ -1,6 +1,6 @@
 # Challange
 
-[challange](https://github.com/goomerdev/job-dev-backend-interview)
+[Challange Goomer](https://github.com/goomerdev/job-dev-backend-interview)
 
 ## A sua API deverá ser capaz de
 
@@ -32,7 +32,7 @@
 
 - [x] Horários de funcionamento do restaurante (ex.: De Segunda à Sexta das 09h as 18h e de Sabado à Domingo das 11h as 20h).
 
-- Todo: Validar horários, separar dias e horários
+- [x] Separar dias e horários
 
 ### O cadastro de produtos do restaurante precisa ter os seguintes campos
 
@@ -44,11 +44,11 @@
 
 - [x] Categoria do produto (ex.: Doce, Salgados, Sucos...)
 
-- Quando o Produto for colocado em promoção, precisa ter os seguintes campos:
+- [x] Quando o Produto for colocado em promoção, precisa ter os seguintes campos:
 
-  - Todo: Validar se está em promoção e informações caso esteja
+  - [x] Validar se está em promoção e informações caso esteja
 
-  - Todo: Validar horários, separar dias e horários
+  - [x] Separar dias e horários
 
 - [x] Descrição para a promoção do produto (ex.: Chopp pela metade do preço)
 

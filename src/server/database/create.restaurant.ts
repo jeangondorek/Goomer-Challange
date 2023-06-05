@@ -9,7 +9,8 @@ export function createRestaurantTable() {
       foto TEXT, 
       address TEXT,
       dias TEXT, 
-      horarios TEXT)`,
+      horarioInicio DATE,
+      horarioFim DATE)`,
     (err: any) => {
       if (err) {
         console.log(err);

@@ -10,7 +10,8 @@ export function createProductTable() {
       description TEXT, 
       precopromo NUMERIC,
       diasempromo TEXT,
-      horariosempromo TEXT,
+      horarioIniciopromo DATE,
+      horarioFimpromo DATE,
       image TEXT,
       category TEXT,
       restaurant_id INTEGER,
@@ -21,14 +22,4 @@ export function createProductTable() {
       }
     });
   });
-}
-
-// Função para validar a presença dos campos quando promo for true
-export function validatePromoFields(promo: any, description:any, precopromo: any, diasempromo: any, horariosempromo: any) {
-  if (promo && (!precopromo || !diasempromo || !horariosempromo || !description)) {
-    return true;
-  }
-  if (!promo && (precopromo || diasempromo || horariosempromo || description)) {
-    return true;
-  }
 }
