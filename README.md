@@ -2,6 +2,7 @@
 
 [Challange Goomer](https://github.com/goomerdev/job-dev-backend-interview)
 
+A API não é capaz de definir o horário de funcionamento caso for restaurante 24 horas e caso o restaurante for trabalhar em horarios como das 12h as 8h(de um dia a outro) não foi criado nenhum controle.
 ## A sua API deverá ser capaz de
 
 - [x] Listar todos os restaurantes
