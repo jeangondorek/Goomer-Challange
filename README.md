@@ -58,8 +58,8 @@
 
 ### Formato de horários
 
-- [ ] É necessário tratar os campos que indicam horários de funcionamento e horário para as promoções dos produtos.
+- [x] É necessário tratar os campos que indicam horários de funcionamento e horário para as promoções dos produtos.
 
-- [ ] Os campos devem possuir o formato HH:mm.
+- [x] Os campos devem possuir o formato HH:mm.
 
-- [ ] Os horários devem possuir intervalo mínimo de 15 minutos.
+- [x] Os horários devem possuir intervalo mínimo de 15 minutos.

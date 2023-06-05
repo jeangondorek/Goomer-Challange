@@ -14,7 +14,7 @@ export const createProduct: RequestHandler = async (req, res) => {
     for (const horario of horarios) {
       if (validateHorario(horario)) {
         console.log(`Horário inválido: ${horario}`);
-        return res.status(400).json({ error: 'Formato dos campos inválido' });
+        return res.status(400).json({ error: 'Formato dos campos inválido, intervalo minimo de 15 minutos' });
       }
     }
 

@@ -11,5 +11,10 @@ export const validateHorario = (horario: string): boolean => {
   if (minuto < 0 || minuto > 59) {
     return true;
   }
+
+  if (minuto % 15 !== 0) {
+    return true;
+  }
+
   return false;
 };
