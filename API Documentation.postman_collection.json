@@ -33,7 +33,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Cachorro2\",\n    \"foto\": \"true\",\n    \"address\": \"asfasf\",\n    \"horarios\": \"qualquer\"\n}"
+							"raw": "{\n  \"name\": \"Restaurante 33\",\n  \"foto\": \"caminho/para/foto.png\",\n  \"address\": \"Endereço do restaurante\",\n  \"dias\": \"Segunda a Sexta\",\n  \"horarioInicio\": \"17:00\",\n  \"horarioFim\": \"17:12\"\n}\n"
 						},
 						"url": {
 							"raw": "{{URLBASE}}/restaurant",
@@ -197,7 +197,7 @@
 			"name": "products",
 			"item": [
 				{
-					"name": "Create proucts",
+					"name": "Create proucts with promo",
 					"event": [
 						{
 							"listen": "test",
@@ -219,7 +219,45 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Pizza Margherita\",\n  \"description\": \"Delicious classic pizza with tomato sauce, mozzarella cheese, and fresh basil\",\n  \"precopromo\": 15.99,\n  \"promo\": \"30% off\",\n  \"preco\": 22.99,\n  \"diasempromo\": \"Monday to Wednesday\",\n  \"image\": \"https://example.com/images/pizza.jpg\",\n  \"restaurantid\": 2\n}\n"
+							"raw": "{\n  \"name\": \"Produto em Promoção\",\n  \"description\": \"Descrição do produto em promoção\",\n  \"precopromo\": 19.99,\n  \"promo\": true,\n  \"preco\": 29.99,\n  \"diasempromo\": \"Segunda a Sexta\",\n  \"horarioIniciopromo\": \"23:00\",\n  \"horarioFimpromo\": \"01:00\",\n  \"image\": \"caminho/para/imagem.png\",\n  \"category\": \"Categoria do produto\",\n  \"restaurantid\": 1\n}\n"
+						},
+						"url": {
+							"raw": "{{URLBASE}}/products",
+							"host": [
+								"{{URLBASE}}"
+							],
+							"path": [
+								"products"
+							]
+						},
+						"description": "Creates a collection using the [Postman Collection v2 schema format](https://schema.postman.com/json/collection/v2.1.0/docs/index.html). Include a `collection` object in the request body that contains the following required properties:\n\n*   `info` — An **object** that contains the following properties:\n    *   `name` — A **string** value that contains the collection's name.\n    *   `schema` — A **string** that contains a URL to the collection's schema. For example, the `https://schema.getpostman.com/collection/v1` URL.\n*   `item` — An **object** that contains the HTTP request and response information.\n    *   `request` — An **object** that contains the collection's request information. For a complete list of values, refer to the `definitions.request` entry in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json). If you pass an empty object for this value, the system defaults to an untitled GET request.\n\n**Note:**\n\n*   For a complete list of available property values for this endpoint, use the following references available in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json):\n    *   `info` object — Use the `definitions.info` entry.\n    *   `item` object — Use the `definitions.items` entry.\n*   For all other possible values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json)."
+					},
+					"response": []
+				},
+				{
+					"name": "Create proucts without promo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Produto sem Promoção\",\n  \"promo\": false,\n  \"preco\": 39.99,\n  \"image\": \"caminho/para/imagem2.png\",\n  \"category\": \"Categoria do produto\",\n  \"restaurantid\": 1\n}\n"
 						},
 						"url": {
 							"raw": "{{URLBASE}}/products",
@@ -371,10 +409,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"peixe\"\n}"
+							"raw": "{\n  \"name\": \"Produto peixe\",\n  \"promo\": true,\n  \"preco\": 39.99,\n  \"diasempromo\": \"Segunda a Sexta\",\n  \"horariosempromo\": \"9:00 - 17:00\",\n  \"description\": \"Descrição do produto em promoção\",\n  \"precopromo\": 19.99\n\n}\n"
 						},
 						"url": {
-							"raw": "{{URLBASE}}/products/1?restaurantId=1",
+							"raw": "{{URLBASE}}/products/1?restaurantId=2",
 							"host": [
 								"{{URLBASE}}"
 							],
@@ -385,7 +423,7 @@
 							"query": [
 								{
 									"key": "restaurantId",
-									"value": "1"
+									"value": "2"
 								}
 							]
 						},
