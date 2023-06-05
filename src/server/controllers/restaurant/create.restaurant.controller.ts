@@ -4,10 +4,11 @@ import { RequestHandler } from 'express';
 export const createRestaurant: RequestHandler = async (req, res) => {
   try {
     const db = await openDB();
-    db.run('INSERT INTO restaurant (name, foto, address, horarios) VALUES (?, ?, ?, ?)', [
+    db.run('INSERT INTO restaurant (name, foto, address, dias, horarios) VALUES (?, ?, ?, ?, ?)', [
       req.body.name,
       req.body.foto,
       req.body.address,
+      req.body.dias,
       req.body.horarios
     ]);
     db.close();

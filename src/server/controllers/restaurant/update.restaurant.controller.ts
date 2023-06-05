@@ -4,7 +4,7 @@ import { openDB } from '../index.controller';
 export const updateRestaurant: RequestHandler = async (req, res) => {
   try {
     const db = await openDB();
-    const { name, foto, address, horarios } = req.body;
+    const { name, foto, address, dias, horarios } = req.body;
     const { id } = req.params;
 
     let query = 'UPDATE restaurant SET ';
@@ -26,6 +26,12 @@ export const updateRestaurant: RequestHandler = async (req, res) => {
     if (address) {
       query += 'address = ?, ';
       values.push(address);
+      fieldsToUpdate++;
+    }
+
+    if (dias) {
+      query += 'dias = ?, ';
+      values.push(dias);
       fieldsToUpdate++;
     }
 

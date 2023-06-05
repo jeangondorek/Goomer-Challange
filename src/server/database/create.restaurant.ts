@@ -7,7 +7,8 @@ export function createRestaurantTable() {
       id INTEGER PRIMARY KEY AUTOINCREMENT, 
       name TEXT, 
       foto TEXT, 
-      address TEXT, 
+      address TEXT,
+      dias TEXT, 
       horarios TEXT)`,
     (err: any) => {
       if (err) {
