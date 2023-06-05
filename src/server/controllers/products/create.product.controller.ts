@@ -4,9 +4,9 @@ import { RequestHandler } from 'express';
 
 export const createProduct: RequestHandler = async (req, res) => {
   try {
-    const { name, description, precopromo, promo, preco, diasempromo, horariosempromo, image, category, restaurantid } = req.body;
+    const { name, precopromo, promo, preco, description, diasempromo, horariosempromo, image, category, restaurantid } = req.body;
 
-    const validadapromo = validatePromoFields(promo, precopromo, diasempromo, horariosempromo);
+    const validadapromo = validatePromoFields(promo, description, precopromo, diasempromo, horariosempromo);
 
     if(validadapromo) {
       return res.status(400).json({ error: 'Campos inválidos ou faltantes' });
@@ -20,12 +20,12 @@ export const createProduct: RequestHandler = async (req, res) => {
       return res.status(404).json({ error: 'Restaurante não encontrado' });
     }
 
-    const resposta = await db.run('INSERT INTO products (name, description, precopromo, promo, preco, diasempromo, horariosempromo, image, category, restaurant_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?)', [
+    const resposta = await db.run('INSERT INTO products (name, precopromo, promo,  preco, description, diasempromo, horariosempromo, image, category, restaurant_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?)', [
       name,
-      description,
       precopromo,
       promo,
       preco,
+      description,
       diasempromo,
       horariosempromo,
       image,

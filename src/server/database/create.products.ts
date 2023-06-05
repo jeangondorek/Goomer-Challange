@@ -5,9 +5,9 @@ export function createProductTable() {
     db.run(`CREATE TABLE IF NOT EXISTS products (
       id INTEGER PRIMARY KEY AUTOINCREMENT, 
       name TEXT NOT NULL, 
-      description TEXT NOT NULL, 
       promo BOOLEAN NOT NULL, 
       preco NUMERIC NOT NULL, 
+      description TEXT, 
       precopromo NUMERIC,
       diasempromo TEXT,
       horariosempromo TEXT,
@@ -24,8 +24,11 @@ export function createProductTable() {
 }
 
 // Função para validar a presença dos campos quando promo for true
-export function validatePromoFields(promo: any, precopromo: any, diasempromo: any, horariosempromo: any) {
-  if (promo && (!precopromo || !diasempromo || !horariosempromo)) {
+export function validatePromoFields(promo: any, description:any, precopromo: any, diasempromo: any, horariosempromo: any) {
+  if (promo && (!precopromo || !diasempromo || !horariosempromo || !description)) {
+    return true;
+  }
+  if (!promo && (precopromo || diasempromo || horariosempromo || description)) {
     return true;
   }
 }
